@@ -3,6 +3,7 @@ let data = require('@begin/data')
 
 exports.handler = async function create(req) {
   let todo = arc.http.helpers.bodyParser(req)
+  todo.text = "herman: " + todo.text;
   todo.created = Date.now()
   await data.set({
     table: 'todos',
